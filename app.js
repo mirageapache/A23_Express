@@ -7,14 +7,26 @@ const port = 3000
 app.engine('handlebars', exphbs.engine({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
 
+//static files
+app.use(express.static('public'))
+
 // routes
 app.get('/', (req, res) => {
-  res.send('index page here')
+  res.render('index')
+})
+
+app.get('/about', (req, res) => {
+  res.render('about')
 })
 
 
+app.get('/portfolio', (req, res) => {
+  res.render('portfolio')
+})
 
-
+app.get('/contact', (req, res) => {
+  res.render('contact')
+})
 
 
 // app listener
